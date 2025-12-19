@@ -753,7 +753,7 @@
                 studentId: "250139",
                 email: "riadraj009@gmail.com",
                 phone: "01610077278",
-                photo: "https://via.placeholder.com/300x300/764ba2/ffffff?text=Iftekar+Rahman"
+                photo: "https://img.sanishtech.com/u/ab1fd8affde44dab3e81a542db46c5d2.jpg"
             },
             {
                 id: 35,
