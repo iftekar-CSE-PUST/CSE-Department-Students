@@ -536,13 +536,20 @@
 
     <script>
         const students = [
-            { id: 1, name: "Akhi Akter Mim", studentId: "250101",currentAddress: "", permanentAddress: "", phone: "01612036386", facebook: "", email: "", bloodGroup: "", photo: "" },
+            { id: 1, name: "Akhi Aktar Mim", 
+studentId: "1012070"
+,currentAddress: "Mujahid Club",
+ permanentAddress: "Mujahid Club", 
+phone: "01612-036386", 
+facebook: "https://www.facebook.com/share/1CyTKKR7tL/", 
+email: "mimakhiaktar8@gmail.com", bloodGroup: "B+", 
+photo: "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766159783/gcsdrnsieewyrymiqjkc.jpg"},
             { id: 2, name: "Md. Nasir Uddin Nafiz ", studentId: "250103",currentAddress: "Mohisher Dipo, Pabna", permanentAddress: "Shariakandi,  Bogura", phone: "01723541919", facebook: "https://www.facebook.com/share/17iXMSgbvs/", email: "nasiruddin.nfz21@gmail.com", bloodGroup: "A+", photo: "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766156267/id6cyo4wmyw0o6hlfyzm.jpg"},
             { id: 3, name: "Amit Kumar Dhali", studentId: "250104",currentAddress: "", permanentAddress: "", phone: "01533878366", facebook: "", email: "", bloodGroup: "", photo: "" },
             { id: 4, name: "Md. Shafayat Ahmed", studentId: "250105",currentAddress: "", permanentAddress: "", phone: "01559704798", facebook: "", email: "", bloodGroup: "", photo: "" },
             { id: 5, name: "Toufique Al Imran", studentId: "250106",currentAddress: "", permanentAddress: "", phone: "01721798790", facebook: "", email: "", bloodGroup: "", photo: "" },
             { id: 6, name: "Apurba Kumar", studentId: "250107",currentAddress: "", permanentAddress: "", phone: "01771076379", facebook: "", email: "", bloodGroup: "", photo: "" },
-            { id: 7, name: "Md. Muhibur Rahman Bhuiyan", studentId: "250108",currentAddress: "", permanentAddress: "", phone: "01670749248", facebook: "", email: "", bloodGroup: "", photo: "" },
+            { id: 7, name: "MD.MUHIBUR RAHMAN BHUIYAN", studentId: "250108",currentAddress: "Mujahid Club", permanentAddress: "Dhaka", phone: "01929354030", facebook: "https://www.facebook.com/md.antik.213468", email: "muhibur1109@gmail.com", bloodGroup: "B+", photo: "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766159493/ajimhub6r6p873hgmama.jpg"},
             { id: 8, name: "Md. Faruk Hossain", studentId: "250109",currentAddress: "", permanentAddress: "", phone: "01723914033", facebook: "", email: "", bloodGroup: "", photo: "" },
             { id: 9, name: "Upama Saha", studentId: "250110",currentAddress: "Munsurabad, Pabna", permanentAddress: "Sarishabari, Jamalpur", phone: "01327221457", facebook: "https://www.facebook.com/share/16kouSyzwK/?mibextid=wwXIfr", email: "uparnasaha0@gmail.com", bloodGroup: "B+", photo: "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766148102/gwedorv2cy2yqpe4tggj.jpg" },
             { id: 10, name: "Md. Mahfil Akter", studentId: "250111",currentAddress: "Mohisher Dipo", permanentAddress: "Naogaon", phone: "01716175548", facebook: "https://www.facebook.com/share/1HtVvXPhgA/", email: "mdmahfilakter@gmail.com", bloodGroup: "B+", photo: "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766155646/sjksqvk6m9mppgcey4zr.jpg"},
@@ -554,7 +561,7 @@
             { id: 16, name: "Md. Forhad Zaman", studentId: "250117",currentAddress: "", permanentAddress: "", phone: "01630743003", facebook: "", email: "", bloodGroup: "", photo: "" },
             { id: 17, name: "Md. Soyab Hossain", studentId: "250119",currentAddress: "", permanentAddress: "", phone: "01571054693", facebook: "", email: "", bloodGroup: "", photo: "" },
             { id: 18, name: "Asmaul Husna", studentId: "250120",currentAddress: "", permanentAddress: "", phone: "01743253000", facebook: "", email: "", bloodGroup: "", photo: "" },
-            { id: 19, name: "Md. Nahidul Islam", studentId: "250121",currentAddress: "", permanentAddress: "", phone: "01834145283", facebook: "", email: "", bloodGroup: "", photo: "" },
+            { id: 19, name: "MD. NAHIDUL ISLAM", studentId: "250121",currentAddress: "Mohendropur, Pabna", permanentAddress: "Santhia, Pabna", phone: "01834145283", facebook: "https://www.facebook.com/nahidul.cse.pust", email: "nayeem5650@outlook.com", bloodGroup: "B+", photo: "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766158512/oflfhamin7sdor9m7syo.jpg"},
             { id: 20, name:"Salauddin Ayyuve", studentId:"250122",currentAddress:"Mujahid Club", permanentAddress: "Bashuriya, Shajadpure,Sirajganj ", phone: "01318856637", facebook: "https://www.facebook.com/share/17agXG6z6T/ ", email: "salauddinaiuve@gmail.com", bloodGroup: "B-", photo: "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766151639/eogujcllokxq90igrvqg.jpg"},
             {id : 21, name : "Zahin Mahmud Daiyan", studentId : "250123", currentAddress : "Mahtab Tower, Rajapur, Pabna", permanentAddress : "Mohonpur Road, Mohonpur, Natore", phone : "01701299258", facebook : "https://www.facebook.com/zahin.mahmud.daiyan.CSE.PUST", email : "zahinmahmuddaiyan271@gmail.com", bloodGroup : "O+", photo : "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766153355/dyaa4sw21ku0noarts5q.jpg"},            { id: 22, name: "Mst. Khandakar Jahida", studentId: "250124",currentAddress: "", permanentAddress: "", phone: "01303341680", facebook: "", email: "", bloodGroup: "", photo: "" },
             { id: 23, name: "SHAHID-HASAN-FAHIM", studentId: "250125",currentAddress: "MOJAHID CLUB", permanentAddress: "NILPHAMARI", phone: "01720988987", facebook: "https://www.facebook.com/share/1HLGbwMiFn/", email: "shfahimf@gmail.com", bloodGroup: "o+", photo: "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766153186/wz3dqceu1zvyyp8oyftl.jpg"},
