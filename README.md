@@ -765,7 +765,7 @@ phone: "01874175415", facebook: "https://www.facebook.com/realasadullahatik",
  photo: "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766217086/abiusbfsjgx4thhfxgsh.jpg"},
             { id: 12, name: "Avijit Biswas", studentId: "250113",currentAddress: "Meril Bypass", permanentAddress: "Jashore", phone: "01902340202", facebook: "https://www.facebook.com/ovi.jit.3950", email: "avijit90321jsr@gmail.com", bloodGroup: "B+", photo: "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766229736/ndivrmdx3m4moscpocah.jpg"},
             { id: 13, name: "Mst. Sumaiya Islam", studentId: " 250114",currentAddress: " Rajapur,Pabna", permanentAddress: " Gazipur Sadar,Gazipur", phone: " 01924465889", facebook: " https://www.facebook.com/sumaiya.islam.272223", email: "mst.sumaiyaislam424@gmail.com", bloodGroup: " AB+", photo: "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766214561/tuht9qa6testhtnewowu.jpg" },
-            { id: 14, name: "Rima Jahan", studentId: "250115",currentAddress: "", permanentAddress: "", phone: "01909197188", facebook: "", email: "", bloodGroup: "", photo: "" },
+            { id: 14, name: "Rima Jahan", studentId: "250115",currentAddress: "Forida Tower", permanentAddress: "Thakurgaon ", phone: "01909197188", facebook: "", email: "rimajahansdp@gmail.com", bloodGroup: "B+", photo: ""},
             { id: 15, name: "Mst. Urmila Khatun", studentId: "250116",currentAddress: "", permanentAddress: "", phone: "01612482547", facebook: "", email: "", bloodGroup: "", photo: "" },
             { id: 16, name: "Md. Forhad Zaman", studentId: "250117",currentAddress: "", permanentAddress: "", phone: "01630743003", facebook: "", email: "", bloodGroup: "", photo: "" },
             { id: 17, name: "Md. Soyab Hossain", studentId: "250119",currentAddress: "", permanentAddress: "", phone: "01571054693", facebook: "", email: "", bloodGroup: "", photo: "" },
@@ -798,7 +798,7 @@ permanentAddress: "Bera,Pabna",
 phone: "01875768594", facebook: "https://www.facebook.com/share/1Adm7jw1kh/", email: "soheliakhi999@gmail.com ",
 bloodGroup: "AB+",
  photo:"https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766163515/xngyl6q8eqfvnipe6ram.jpg"},
-            { id: 26, name: "Khandaker Saiful Islam Tanvir", studentId: "250130",currentAddress: "Mujahid Club", permanentAddress: "Muradnagar, Cumilla", phone: "01602032209", facebook: "https://www.facebook.com/share/1AXbodyPma/", email: "Khandakertanvir151@gmail ", bloodGroup: "B+", photo: "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766150081/ihvsrpvfrqmvhuhwwu9p.jpg"},
+            { id: 26, name: "Khandaker Saiful Islam Tanvir", studentId: "250130",currentAddress: "Mujahid Club", permanentAddress: "Muradnagar, Cumilla", phone: "01602032209", facebook: "https://www.facebook.com/share/1AXbodyPma/", email: "Khandakertanvir151@gmail.com ", bloodGroup: "B+", photo: "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766150081/ihvsrpvfrqmvhuhwwu9p.jpg"},
             { id: 27, name: "Md. Riyaz Ali", studentId: " 250132",currentAddress: " Mujahid Club", permanentAddress: "Rajshahi", phone: "01751812046", facebook: " https://www.facebook.com/share/17wXYyanuL/", email: "mdriyazali531@gmail.com", bloodGroup: "O+", photo: "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766151474/gzbochse0bez3q1dxqk3.jpg"},
             { id: 28, name: "Md. Sahadat Hossain", studentId: "250133",currentAddress: "", permanentAddress: "", phone: "01994728770", facebook: "", email: "", bloodGroup: "", photo: "" },
             { id: 29, name: "Jagojit Chandro Barmon (Niloy)", studentId: "250134",currentAddress: "Rothghor, Pabna", permanentAddress: "Kurigram", phone: "01737232248", facebook: "https://www.facebook.com/niloy.roy.327548", email: "jagojitchandro@gmail.com", bloodGroup: "B+", photo: "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766223805/oifop4qy3ojsuff8ferr.jpg"},
@@ -824,7 +824,7 @@ facebook: "https://www.facebook.com/profile.php?id=100074429367529",
 email: "azizulhoqueemon634@gmail.com",
 bloodGroup: "A+",
 photo: "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766228742/dued0vw2cxjcsbli9ghs.jpg"},
-            { id: 36, name: "Mst. Johura Khatun", studentId: "250141",currentAddress: "", permanentAddress: "", phone: "01752403522", facebook: "", email: "", bloodGroup: "", photo: "" }
+            { id: 36, name: "Mst. Johura Khatun", studentId: "250141",currentAddress: "Rajapur, Pabna", permanentAddress: "Rajapur, Pabna", phone: "01752403522", facebook: "https://www.facebook.com/share/1DSpnpcvsY/",email: "fatematujjohura819@gmail.com", bloodGroup: "O+", photo: ""}
         ];
 
         function getInitials(name) {
