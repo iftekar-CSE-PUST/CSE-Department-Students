@@ -12,61 +12,71 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* Animated background shapes */
+        /* Enhanced animated background */
         .bg-shape {
             position: fixed;
             border-radius: 50%;
-            opacity: 0.1;
-            animation: float 20s infinite;
+            opacity: 0.12;
+            animation: float 30s infinite ease-in-out;
             z-index: 0;
+            filter: blur(60px);
         }
 
         .shape1 {
-            width: 300px;
-            height: 300px;
-            background: white;
-            top: -100px;
-            left: -100px;
+            width: 500px;
+            height: 500px;
+            background: linear-gradient(135deg, #ff6b6b, #feca57);
+            top: -200px;
+            left: -200px;
             animation-delay: 0s;
         }
 
         .shape2 {
-            width: 200px;
-            height: 200px;
-            background: white;
-            bottom: -50px;
-            right: -50px;
-            animation-delay: 5s;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #48dbfb, #0abde3);
+            bottom: -150px;
+            right: -150px;
+            animation-delay: 10s;
         }
 
         .shape3 {
-            width: 150px;
-            height: 150px;
-            background: white;
-            top: 50%;
-            right: 10%;
-            animation-delay: 10s;
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, #ee5a6f, #f368e0);
+            top: 30%;
+            right: 5%;
+            animation-delay: 5s;
+        }
+
+        .shape4 {
+            width: 450px;
+            height: 450px;
+            background: linear-gradient(135deg, #26de81, #20bf6b);
+            top: 15%;
+            left: 8%;
+            animation-delay: 15s;
         }
 
         @keyframes float {
             0%, 100% {
-                transform: translate(0, 0) rotate(0deg);
+                transform: translate(0, 0) rotate(0deg) scale(1);
             }
             25% {
-                transform: translate(30px, -30px) rotate(90deg);
+                transform: translate(60px, -60px) rotate(90deg) scale(1.1);
             }
             50% {
-                transform: translate(-30px, 30px) rotate(180deg);
+                transform: translate(-40px, 60px) rotate(180deg) scale(0.9);
             }
             75% {
-                transform: translate(30px, 30px) rotate(270deg);
+                transform: translate(50px, 50px) rotate(270deg) scale(1.05);
             }
         }
 
@@ -82,145 +92,223 @@
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            background: white;
-            padding: 20px 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 25px 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            backdrop-filter: blur(20px);
+            border-bottom: 3px solid transparent;
+            border-image: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #ff6b6b) 1;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .logo-section {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
 
         .logo-container {
             position: relative;
         }
 
-        .logo {
-            width: 60px;
-            height: 60px;
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            top: -6px;
+            left: -6px;
+            right: -6px;
+            bottom: -6px;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #ff6b6b, #667eea);
+            background-size: 300% 300%;
             border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #667eea;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            animation: pulse 2s infinite;
+            animation: gradientRotate 4s linear infinite;
+            z-index: -1;
         }
 
-        @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
+        @keyframes gradientRotate {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .logo {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            animation: logoFloat 3s ease-in-out infinite;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .logo:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
         }
 
         .header-text h2 {
-            font-size: 1.3em;
-            color: #333;
+            font-size: 1.6em;
+            background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 5px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            transition: all 0.3s ease;
         }
 
         .header-text small {
-            color: #666;
-            font-size: 0.9em;
+            color: #555;
+            font-size: 1em;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
 
         .time {
             text-align: right;
-            font-weight: bold;
-            color: #667eea;
-            font-size: 1em;
-            line-height: 1.4;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea, #f093fb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.15em;
+            line-height: 1.6;
+            transition: all 0.3s ease;
         }
 
         .hero-section {
             text-align: center;
-            padding: 40px 20px 30px;
+            padding: 55px 25px 40px;
             color: white;
         }
 
         .hero-section h1 {
-            font-size: 2.8em;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-            animation: slideDown 0.8s ease-out;
+            font-size: 3.5em;
+            margin-bottom: 25px;
+            text-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            animation: slideDown 1s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 900;
+            letter-spacing: -2px;
         }
 
         @keyframes slideDown {
             from {
                 opacity: 0;
-                transform: translateY(-30px);
+                transform: translateY(-50px) scale(0.9);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
             }
         }
 
         .session-info {
-            background: rgba(255,255,255,0.25);
-            padding: 15px 35px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.35), rgba(255,255,255,0.25));
+            padding: 20px 50px;
             border-radius: 50px;
             display: inline-block;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            font-size: 1.1em;
-            margin-bottom: 25px;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            font-size: 1.2em;
+            margin-bottom: 35px;
+            border: 2px solid rgba(255,255,255,0.5);
+            font-weight: 700;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .session-info:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .search-box {
-            max-width: 500px;
-            margin: 0 auto 30px;
+            max-width: 600px;
+            margin: 0 auto 40px;
             position: relative;
+            animation: fadeIn 1.4s ease-out;
         }
 
         .search-box input {
             width: 100%;
-            padding: 15px 50px 15px 20px;
+            padding: 20px 60px 20px 28px;
             border-radius: 50px;
-            border: none;
-            font-size: 16px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            transition: transform 0.3s;
+            border: 3px solid rgba(255,255,255,0.4);
+            font-size: 17px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255,255,255,0.98);
+            font-weight: 500;
         }
 
         .search-box input:focus {
             outline: none;
-            transform: scale(1.02);
+            transform: translateY(-2px);
+            border-color: rgba(255,255,255,0.7);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+
+        .search-box input::placeholder {
+            color: #999;
         }
 
         .search-box i {
             position: absolute;
-            right: 20px;
+            right: 28px;
             top: 50%;
             transform: translateY(-50%);
-            color: #667eea;
-            font-size: 1.2em;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 1.4em;
+            transition: all 0.3s ease;
+        }
+
+        .search-box:hover i {
+            transform: translateY(-50%) scale(1.1);
         }
 
         .stats {
             text-align: center;
-            margin: 20px auto 40px;
-            padding: 30px;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            border-radius: 20px;
+            margin: 30px auto 55px;
+            padding: 45px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 50%, #f368e0 100%);
+            border-radius: 30px;
             color: white;
-            max-width: 400px;
-            box-shadow: 0 10px 30px rgba(245,87,108,0.3);
+            max-width: 480px;
+            box-shadow: 0 20px 60px rgba(245,87,108,0.4);
             position: relative;
             overflow: hidden;
+            border: 3px solid rgba(255,255,255,0.3);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: fadeIn 1.6s ease-out;
+        }
+
+        .stats:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 80px rgba(245,87,108,0.5);
         }
 
         .stats::before {
             content: '🎓';
             position: absolute;
-            font-size: 120px;
-            opacity: 0.15;
-            top: -20px;
-            right: -20px;
-            animation: rotate 20s linear infinite;
+            font-size: 180px;
+            opacity: 0.1;
+            top: -40px;
+            right: -40px;
+            animation: rotate 25s linear infinite;
         }
 
         @keyframes rotate {
@@ -229,47 +317,64 @@
         }
 
         .stats h2 {
-            font-size: 3.5em;
-            margin-bottom: 10px;
+            font-size: 4.5em;
+            margin-bottom: 15px;
             position: relative;
             z-index: 2;
+            font-weight: 900;
+            text-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            animation: numberPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes numberPop {
+            0% { transform: scale(0); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
         }
 
         .stats p {
-            font-size: 1.2em;
+            font-size: 1.4em;
             position: relative;
             z-index: 2;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
         .student-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 30px;
-            padding: 20px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 40px;
+            padding: 30px;
+            margin-bottom: 60px;
         }
 
         .student-card {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(255,255,255,0.95));
+            border-radius: 28px;
+            box-shadow: 0 15px 45px rgba(0,0,0,0.15);
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
-            animation: cardFadeIn 0.6s ease-out backwards;
+            animation: cardFadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) backwards;
+            border: 2px solid rgba(255,255,255,0.6);
         }
 
-        .student-card:nth-child(odd) { animation-delay: 0.1s; }
-        .student-card:nth-child(even) { animation-delay: 0.2s; }
+        .student-card:nth-child(6n+1) { animation-delay: 0.1s; }
+        .student-card:nth-child(6n+2) { animation-delay: 0.15s; }
+        .student-card:nth-child(6n+3) { animation-delay: 0.2s; }
+        .student-card:nth-child(6n+4) { animation-delay: 0.25s; }
+        .student-card:nth-child(6n+5) { animation-delay: 0.3s; }
+        .student-card:nth-child(6n) { animation-delay: 0.35s; }
 
         @keyframes cardFadeIn {
             from {
                 opacity: 0;
-                transform: translateY(30px);
+                transform: translateY(50px) scale(0.9);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: translateY(0) scale(1);
             }
         }
 
@@ -279,10 +384,17 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            height: 7px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #ff6b6b, #667eea);
+            background-size: 300% 100%;
+            animation: gradientSlide 4s linear infinite;
             transform: scaleX(0);
-            transition: transform 0.4s;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes gradientSlide {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 300% 0%; }
         }
 
         .student-card:hover::before {
@@ -290,34 +402,40 @@
         }
 
         .student-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            transform: translateY(-20px) scale(1.03);
+            box-shadow: 0 30px 70px rgba(0,0,0,0.25);
         }
 
         .photo-container {
             position: relative;
             overflow: hidden;
-            height: 280px;
+            height: 320px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
         }
 
         .student-photo, .initials {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.4s;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .initials {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4em;
-            font-weight: bold;
+            font-size: 5em;
+            font-weight: 900;
             color: white;
+            text-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
         .student-card:hover .student-photo {
+            transform: scale(1.18) rotate(3deg);
+        }
+
+        .student-card:hover .initials {
             transform: scale(1.1);
         }
 
@@ -327,9 +445,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.4));
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.7) 100%);
             opacity: 0;
-            transition: opacity 0.4s;
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .student-card:hover .photo-overlay {
@@ -337,150 +455,233 @@
         }
 
         .student-info {
-            padding: 25px;
+            padding: 32px;
         }
 
         .student-name {
-            font-size: 1.3em;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 12px;
+            font-size: 1.4em;
+            font-weight: 900;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
             text-align: center;
             text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .student-card:hover .student-name {
+            letter-spacing: 1px;
         }
 
         .student-id {
-            color: #666;
-            font-size: 0.95em;
-            margin-bottom: 15px;
-            padding: 8px 15px;
-            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
-            border-radius: 20px;
+            color: white;
+            font-size: 1.05em;
+            margin-bottom: 20px;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 30px;
             display: inline-block;
-            font-weight: 600;
+            font-weight: 800;
+            box-shadow: 0 8px 20px rgba(102,126,234,0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .student-card:hover .student-id {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(102,126,234,0.5);
         }
 
         .info-item {
             display: flex;
             align-items: center;
-            gap: 8px;
-            margin: 8px 0;
-            font-size: 0.9em;
-            color: #555;
+            gap: 12px;
+            margin: 12px 0;
+            font-size: 1em;
+            color: #444;
             flex-wrap: wrap;
+            padding: 10px 15px;
+            border-radius: 15px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
+        }
+
+        .info-item:hover {
+            background: rgba(102,126,234,0.1);
+            transform: translateX(8px);
         }
 
         .info-item i {
-            width: 18px;
-            font-size: 1em;
+            width: 22px;
+            font-size: 1.15em;
+            transition: transform 0.3s ease;
         }
 
-        .icon-session { color: #ff9900; }
-        .icon-current { color: #33cc33; }
-        .icon-permanent { color: #ff33cc; }
-        .icon-phone { color: #0066cc; }
+        .info-item:hover i {
+            transform: scale(1.2);
+        }
+
+        .icon-session { color: #ffa502; }
+        .icon-current { color: #26de81; }
+        .icon-permanent { color: #fd79a8; }
+        .icon-phone { color: #0984e3; }
         .icon-facebook { color: #1877f2; }
-        .icon-email { color: #ff6600; }
-        .icon-blood { color: #cc0000; }
+        .icon-email { color: #ff6348; }
+        .icon-blood { color: #eb3b5a; }
 
         .copy-btn {
             border: none;
-            background: none;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             cursor: pointer;
-            color: #667eea;
-            padding: 4px 6px;
-            border-radius: 5px;
-            transition: all 0.3s;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 10px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.95em;
         }
 
         .copy-btn:hover {
-            background: #f0f0f0;
-            transform: scale(1.1);
+            transform: scale(1.15) rotate(5deg);
+            box-shadow: 0 8px 20px rgba(102,126,234,0.5);
         }
 
         .toast {
             visibility: hidden;
-            min-width: 250px;
-            background-color: #333;
+            min-width: 300px;
+            background: linear-gradient(135deg, #2d3436, #000000);
             color: #fff;
             text-align: center;
-            border-radius: 10px;
-            padding: 15px 20px;
+            border-radius: 18px;
+            padding: 20px 30px;
             position: fixed;
             left: 50%;
             bottom: 30px;
             transform: translateX(-50%);
-            font-size: 14px;
+            font-size: 16px;
             z-index: 9999;
             opacity: 0;
-            transition: opacity 0.4s, bottom 0.4s;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            gap: 15px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+            border: 2px solid rgba(255,255,255,0.15);
+            font-weight: 700;
         }
 
         .toast.show {
             visibility: visible;
             opacity: 1;
-            bottom: 50px;
+            bottom: 70px;
+        }
+
+        .toast i {
+            color: #26de81;
+            font-size: 1.5em;
+            animation: checkPop 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes checkPop {
+            0% { transform: scale(0) rotate(-45deg); }
+            50% { transform: scale(1.2) rotate(5deg); }
+            100% { transform: scale(1) rotate(0deg); }
         }
 
         footer {
-            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #2c3e50 100%);
             color: white;
             text-align: center;
-            padding: 30px 20px;
+            padding: 45px 30px;
             position: relative;
             overflow: hidden;
-            margin-top: 40px;
+            margin-top: 60px;
+            border-top: 4px solid transparent;
+            border-image: linear-gradient(90deg, #667eea, #764ba2, #f093fb) 1;
         }
 
         footer::before {
             content: '💻';
             position: absolute;
-            font-size: 100px;
+            font-size: 180px;
             opacity: 0.05;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            animation: rotate 20s linear infinite;
         }
 
         footer p {
-            margin: 8px 0;
-            opacity: 0.9;
+            margin: 12px 0;
+            opacity: 0.95;
             position: relative;
             z-index: 2;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        footer p:hover {
+            opacity: 1;
+            transform: translateY(-2px);
         }
 
         .footer-divider {
-            width: 80px;
-            height: 3px;
-            background: white;
-            margin: 12px auto;
-            border-radius: 2px;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            margin: 18px auto;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        footer:hover .footer-divider {
+            width: 160px;
         }
 
         @media (max-width: 768px) {
             .hero-section h1 {
-                font-size: 2em;
+                font-size: 2.5em;
+                letter-spacing: -1px;
             }
 
             .student-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-                gap: 20px;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 30px;
             }
 
             header {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 15px;
+                gap: 20px;
+                padding: 20px 25px;
             }
 
             .time {
                 text-align: left;
             }
+
+            .logo {
+                width: 65px;
+                height: 65px;
+            }
+
+            .header-text h2 {
+                font-size: 1.4em;
+            }
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection styling */
+        ::selection {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
         }
     </style>
 </head>
@@ -488,6 +689,7 @@
     <div class="bg-shape shape1"></div>
     <div class="bg-shape shape2"></div>
     <div class="bg-shape shape3"></div>
+    <div class="bg-shape shape4"></div>
 
     <div class="container">
         <header>
@@ -530,12 +732,12 @@
     </div>
 
     <div id="toast" class="toast">
-        <i class="fa-solid fa-check"></i>
+        <i class="fa-solid fa-check-circle"></i>
         <span id="toast-text"></span>
     </div>
 
     <script>
-        const students = [
+         const students = [
             { id: 1, name: "Akhi Aktar Mim", 
 studentId: "250101"
 ,currentAddress: "Mujahid Club, Pabna",
@@ -555,7 +757,7 @@ photo: "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766159783/gcsdrnsiee
             { id: 10, name: "Md. Mahfil Akter", studentId: "250111",currentAddress: "Mohisher Dipo", permanentAddress: "Naogaon", phone: "01716175548", facebook: "https://www.facebook.com/share/1HtVvXPhgA/", email: "mdmahfilakter@gmail.com", bloodGroup: "B+", photo: "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766155646/sjksqvk6m9mppgcey4zr.jpg"},
             { id: 11, name: "Md. Asadullah Atik", studentId: "250112",currentAddress: "", permanentAddress: "", phone: "01874175415", facebook: "", email: "", bloodGroup: "", photo: "" },
             { id: 12, name: "Avijit Biswas", studentId: "250113",currentAddress: "", permanentAddress: "", phone: "01902340202", facebook: "", email: "", bloodGroup: "", photo: "" },
-            { id: 13, name: "Mst. Sumaiya Islam", studentId: "250114",currentAddress: "", permanentAddress: "", phone: "01924465889", facebook: "", email: "", bloodGroup: "", photo: "" },
+            { id: 13, name: "Mst.Sumaiya Islam", studentId: " 250114",currentAddress: " Rajapur,Pabna", permanentAddress: " Gazipur Sadar,Gazipur", phone: " 01924465889", facebook: " https://www.facebook.com/sumaiya.islam.272223", email: "mst.sumaiyaislam424@gmail.com", bloodGroup: " AB+", photo: "https://res.cloudinary.com/dcwnn9c0u/image/upload/v1766214561/tuht9qa6testhtnewowu.jpg" },
             { id: 14, name: "Rima Jahan", studentId: "250115",currentAddress: "", permanentAddress: "", phone: "01909197188", facebook: "", email: "", bloodGroup: "", photo: "" },
             { id: 15, name: "Mst. Urmila Khatun", studentId: "250116",currentAddress: "", permanentAddress: "", phone: "01612482547", facebook: "", email: "", bloodGroup: "", photo: "" },
             { id: 16, name: "Md. Forhad Zaman", studentId: "250117",currentAddress: "", permanentAddress: "", phone: "01630743003", facebook: "", email: "", bloodGroup: "", photo: "" },
