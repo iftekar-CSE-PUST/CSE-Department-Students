@@ -258,6 +258,41 @@
             display: none;
         }
 
+        /* Quick Actions Panel - Transferred from second file */
+        .quick-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px auto;
+            flex-wrap: wrap;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.15));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 15px 25px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .action-btn i {
+            font-size: 1.3em;
+        }
+
         /* UPDATED: User Info Panel - Now inside header below time */
         .header-right-section {
             display: flex;
@@ -939,6 +974,110 @@
             width: 160px;
         }
 
+        /* Announcement Modal Styles */
+        .announcement-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 9998;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .announcement-modal-content {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 800px;
+            width: 90%;
+            color: white;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .announcement-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .announcement-header h2 {
+            margin: 0;
+        }
+
+        .close-announcement {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .announcement-content {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .announcement-content h3 {
+            margin-top: 0;
+            color: #FFD700;
+        }
+
+        .announcement-table {
+            background: rgba(255,255,255,0.08);
+            border-radius: 15px;
+            padding: 20px;
+            overflow-x: auto;
+            margin-bottom: 20px;
+        }
+
+        .announcement-table table {
+            width: 100%;
+            border-collapse: collapse;
+            color: white;
+        }
+
+        .announcement-table th,
+        .announcement-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .announcement-table th {
+            background: rgba(255,255,255,0.15);
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .announcement-note {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            border-left: 4px solid #FFD700;
+        }
+
+        .announcement-footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
         @media (max-width: 768px) {
             .hero-section h1 {
                 font-size: 2.5em;
@@ -1006,6 +1145,31 @@
             .logout-btn {
                 padding: 5px 8px;
                 font-size: 0.8em;
+            }
+
+            /* Quick actions responsive */
+            .quick-actions {
+                gap: 10px;
+            }
+
+            .action-btn {
+                padding: 12px 20px;
+                font-size: 0.9em;
+            }
+
+            /* Announcement modal responsive */
+            .announcement-modal-content {
+                padding: 20px;
+            }
+
+            .announcement-content {
+                padding: 15px;
+            }
+
+            .announcement-table th,
+            .announcement-table td {
+                padding: 10px;
+                font-size: 0.9em;
             }
         }
 
@@ -1098,6 +1262,16 @@
                     <strong>Session:</strong> 2024-2025
                 </div>
                 
+                <!-- Transferred: Quick Actions Panel -->
+                <div class="quick-actions">
+                    <a href="https://pust.ac.bd/academic/departments/dept_teachers/D01" target="_blank" class="action-btn">
+                        <i class="fas fa-chalkboard-teacher"></i> Teachers Zone
+                    </a>
+                    <button class="action-btn" id="announcementBtn">
+                        <i class="fas fa-bullhorn"></i> Exam Schedule
+                    </button>
+                </div>
+                
                 <div class="search-box">
                     <input type="text" id="search" placeholder="Search by name or student ID...">
                     <i class="fa-solid fa-search"></i>
@@ -1121,6 +1295,94 @@
         <div id="toast" class="toast">
             <i class="fa-solid fa-check-circle"></i>
             <span id="toast-text"></span>
+        </div>
+
+        <!-- Transferred: Exam Schedule Modal -->
+        <div id="announcementModal" class="announcement-modal">
+            <div class="announcement-modal-content">
+                <div class="announcement-header">
+                    <h2><i class="fas fa-calendar-alt"></i> 1st Semester Exam Schedule</h2>
+                    <button class="close-announcement" id="closeAnnouncement">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                
+                <div class="announcement-content">
+                    <h3>📢 Important Announcement</h3>
+                    <p style="font-size: 1.1em; line-height: 1.6;">
+                        <strong>B. Sc Engineering 1st Year 1st Semester Examination-2025</strong><br>
+                        Session: 2024-25<br><br>
+                        Semester Final Examination will start from <strong>6th January, 2025</strong>.
+                        All students are requested to prepare accordingly and maintain the exam schedule strictly.
+                    </p>
+                </div>
+                
+                <div class="announcement-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date & Day</th>
+                                <th>Course No.</th>
+                                <th>Course Title</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>06/01/2025</strong><br>Tuesday</td>
+                                <td>CSE-1101</td>
+                                <td>Computer Fundamentals</td>
+                                <td>01:30 PM - 04:30 PM</td>
+                            </tr>
+                            <tr>
+                                <td><strong>10/01/2025</strong><br>Saturday</td>
+                                <td>CSE-1103</td>
+                                <td>Structured Programming Language</td>
+                                <td>01:30 PM - 04:30 PM</td>
+                            </tr>
+                            <tr>
+                                <td><strong>14/01/2025</strong><br>Wednesday</td>
+                                <td>MATH-1101</td>
+                                <td>Differential Calculus and Co-ordinate Geometry</td>
+                                <td>01:30 PM - 04:30 PM</td>
+                            </tr>
+                            <tr>
+                                <td><strong>18/01/2025</strong><br>Sunday</td>
+                                <td>PHY-1101</td>
+                                <td>Physics</td>
+                                <td>01:30 PM - 04:30 PM</td>
+                            </tr>
+                            <tr>
+                                <td><strong>24/01/2025</strong><br>Saturday</td>
+                                <td>HUM-1101</td>
+                                <td>Communicative English</td>
+                                <td>01:30 PM - 04:30 PM</td>
+                            </tr>
+                            <tr>
+                                <td><strong>25/01/2025</strong><br>Sunday</td>
+                                <td>CSE-1150</td>
+                                <td>Viva-Voce</td>
+                                <td>10:00 AM</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="announcement-note">
+                    <p style="margin: 0; font-size: 0.95em;">
+                        <strong>Note:</strong> All examinations will be held at the CSE Department. Students must bring their ID cards and admit cards. 
+                        Please arrive at least 30 minutes before the exam starts.
+                    </p>
+                </div>
+                
+                <div class="announcement-footer">
+                    <p style="font-size: 0.9em; opacity: 0.8;">
+                        Department of Computer Science and Engineering<br>
+                        Pabna University of Science and Technology<br>
+                        Phone: +88 0731 64876 | Email: cse@pust.ac.bd
+                    </p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1147,6 +1409,9 @@
         const loginError = document.getElementById('loginError');
         const logoutBtn = document.getElementById('logoutBtn');
         const currentYear = new Date().getFullYear();
+        const announcementBtn = document.getElementById('announcementBtn');
+        const announcementModal = document.getElementById('announcementModal');
+        const closeAnnouncement = document.getElementById('closeAnnouncement');
 
         // Check if user is already logged in
         function checkLoginStatus() {
@@ -1265,6 +1530,29 @@
             // Add search functionality
             document.getElementById('search').addEventListener('input', (e) => {
                 renderStudents(e.target.value.toLowerCase());
+            });
+            
+            // Initialize announcement modal
+            initializeAnnouncementModal();
+        }
+
+        // Initialize announcement modal
+        function initializeAnnouncementModal() {
+            // Announcements button
+            announcementBtn.addEventListener('click', () => {
+                announcementModal.style.display = 'flex';
+            });
+            
+            // Close announcement modal
+            closeAnnouncement.addEventListener('click', () => {
+                announcementModal.style.display = 'none';
+            });
+            
+            // Close modal when clicking outside
+            announcementModal.addEventListener('click', (e) => {
+                if (e.target === announcementModal) {
+                    announcementModal.style.display = 'none';
+                }
             });
         }
 
